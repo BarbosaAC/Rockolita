@@ -20,6 +20,11 @@ public class Cancion implements Serializable {
 		this.titulo=titulo;
 		this.nombreArtista=nombreArtista;
 	}
+	public Cancion(String titulo, String nombreArtista) {
+		this.titulo=titulo;
+		this.nombreArtista=nombreArtista;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -53,10 +58,7 @@ public class Cancion implements Serializable {
 	
 	@Override
 	public String toString() {
-		return"Identificador= "+id+"\n"
-				+"Titulo= "+titulo+"\n"
-				+"Genero= "+genero+"\n"
-				+"Duración= "+duracion+"\n"
+		return"Titulo= "+titulo+"\n"
 				+"Nombre de artista= "+nombreArtista+"\n";
 	}
 }
