@@ -73,6 +73,7 @@ public class Playlist implements Serializable{
 	
 	@Override
 	public String toString() {
-		return canciones+"\n";
+		
+		return canciones.toString().replace(", ","");
 	}
 }
