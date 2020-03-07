@@ -1,11 +1,15 @@
 package com.generationc20.rockolita;
 import com.generationc20.rockolita.contenido.Cancion;
+
 import com.generationc20.rockolita.contenido.Playlist;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-
+import java.io.ObjectInputStream;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PruebaRockolita {
 
@@ -33,8 +37,9 @@ public class PruebaRockolita {
 			System.out.println("Nombre: "+cancion.getNombre());
 			
 		}
-		guardarPlaylist(paraManejar);
+		//guardarPlaylist(paraManejar);
 		//System.out.println(paraManejar);
+		leerPlaylist("Para manejar");
 		
 	}
 	
@@ -65,6 +70,39 @@ public static void guardarPlaylist(Playlist playlist) {
 		}
 		
 	}
+
+
+public static void leerPlaylist(String nombre) {
+
+String nombreArchivo=nombre.replace(" ", "_");
+String nombreArchivoExtension=String.format(RUTA_ARCHIVO_PLAYLIST,nombreArchivo);
+File archivoPlaylist= new File(nombreArchivoExtension);
+FileInputStream entradaDestino= null;
+ObjectInputStream procesadorObjeto=null;
+try {
+	entradaDestino=new FileInputStream(archivoPlaylist);
+	procesadorObjeto=new ObjectInputStream(entradaDestino);
+	Playlist paraManejar=new Playlist();
+	paraManejar = (Playlist) procesadorObjeto.readObject();
+	System.out.println(paraManejar+"Hola");
+}catch(IOException e) {
+	e.printStackTrace();
+
+} catch (ClassNotFoundException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}finally {
+	try {
+		procesadorObjeto.close();
+		entradaDestino.close();
+	}catch (IOException e) {
+		System.out.println("No pudo cerrar el flujo");
+		e.printStackTrace();
+	}
+	
+}
+	
+}
 }
 
 
