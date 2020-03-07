@@ -8,20 +8,20 @@ import java.io.ObjectInputStream;
 
 public class LeerPlaylist {
 
-	public static final String RUTA_ARCHIVO_PLAYLIST="/home/alejandro/Documentos/eclipse-workspace/Rocolita2/src/com/generationc20/rockolita/%s.txt";
-	public static Playlist leerPlaylist(String nombre) {
+	public static final String RUTA_ARCHIVO_PLAYLIST="/home/alejandro/Documentos/eclipse-workspace/Rocolita2/src/com/generationc20/rockolita/playlist.txt";
+	public static Playlist leerPlaylist() {
 
-		String nombreArchivo=nombre.replace(" ", "_");
-		String nombreArchivoExtension=String.format(RUTA_ARCHIVO_PLAYLIST,nombreArchivo);
+		//String nombreArchivo=nombre.replace(" ", "_");
+		String nombreArchivoExtension=String.format(RUTA_ARCHIVO_PLAYLIST);
 		File archivoPlaylist= new File(nombreArchivoExtension);
 		FileInputStream entradaDestino= null;
 		ObjectInputStream procesadorObjeto=null;
-		Playlist paraManejar=new Playlist();
+		Playlist playlist=new Playlist();
 		try {
 			entradaDestino=new FileInputStream(archivoPlaylist);
 			procesadorObjeto=new ObjectInputStream(entradaDestino);
 			
-			paraManejar =  (Playlist) procesadorObjeto.readObject();
+			playlist =  (Playlist) procesadorObjeto.readObject();
 			
 		}catch(IOException e) {
 			e.printStackTrace();
@@ -40,7 +40,7 @@ public class LeerPlaylist {
 			
 		}
 
-		return paraManejar;
+		return playlist;
 			
 	}
 }

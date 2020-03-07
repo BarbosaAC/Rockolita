@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class GuardarCancion {
-	public static final String RUTA_ARCHIVO_PLAYLIST="/home/alejandro/Documentos/eclipse-workspace/Rocolita2/src/com/generationc20/rockolita/%s.txt";
+	public static final String RUTA_ARCHIVO_PLAYLIST="/home/alejandro/Documentos/eclipse-workspace/Rocolita2/src/com/generationc20/rockolita/playlist.txt";
 
 public static void guardarPlaylist(Playlist playlist) {
 		
-		String nombreArchivo=playlist.getNombre().replace(" ", "_");
-		String nombreArchivoExtension=String.format(RUTA_ARCHIVO_PLAYLIST,nombreArchivo);
+		//String nombreArchivo=playlist.getNombre().replace(" ", "_");
+		String nombreArchivoExtension=String.format(RUTA_ARCHIVO_PLAYLIST);
 		File archivoPlaylist= new File(nombreArchivoExtension);
 		FileOutputStream salidaDestino= null;
 		ObjectOutputStream procesadorObjeto=null;
