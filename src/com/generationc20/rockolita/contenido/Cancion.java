@@ -58,7 +58,7 @@ public class Cancion implements Serializable {
 	
 	@Override
 	public String toString() {
-		return"Titulo= "+titulo+"\n"
+		return"Titulo= "+titulo+"---"
 				+"Nombre de artista= "+nombreArtista+"\n";
 	}
 }

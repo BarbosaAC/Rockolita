@@ -3,8 +3,6 @@ import com.generationc20.rockolita.contenido.GuardarCancion;
 import com.generationc20.rockolita.contenido.LeerPlaylist;
 import com.generationc20.rockolita.contenido.Cancion;
 import com.generationc20.rockolita.contenido.Playlist;
-import com.generationc20.rockolita.contenido.PedirDatosCancion;
-
 import java.util.Scanner;
 
 public class PruebaRockolita {
@@ -65,6 +63,11 @@ public class PruebaRockolita {
 			case 3:
 				playlist=LeerPlaylist.leerPlaylist();
 				System.out.println(playlist);
+				System.out.println("Deseas agregar otra canción o ver tu playlist?");
+				System.out.println("1.Claro!!");
+				System.out.println("2.No");	
+				elegirOpcion = lector.nextInt();
+				lector.nextLine();
 				break;
 			default:
 				System.out.println("Elige una opcion valida");

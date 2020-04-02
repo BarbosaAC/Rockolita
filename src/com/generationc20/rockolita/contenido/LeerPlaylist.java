@@ -13,7 +13,9 @@ public class LeerPlaylist {
 
 		//String nombreArchivo=nombre.replace(" ", "_");
 		String nombreArchivoExtension=String.format(RUTA_ARCHIVO_PLAYLIST);
+		//Crear un objeto de tipo archivo
 		File archivoPlaylist= new File(nombreArchivoExtension);
+		//representacion del flujo de datos- entrada o salida-y el archivo
 		FileInputStream entradaDestino= null;
 		ObjectInputStream procesadorObjeto=null;
 		Playlist playlist=new Playlist();
